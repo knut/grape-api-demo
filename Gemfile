@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'grape', '0.11.0'
+gem 'grape-swagger'
 gem 'grape-entity'
 gem 'json'
 gem 'mongoid', '~> 4.0.0'
