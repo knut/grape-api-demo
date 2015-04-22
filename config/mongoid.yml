@@ -1,0 +1,20 @@
+development:
+  sessions:
+    default:
+      hosts:
+        - localhost:27017
+      database: grape_api_example_development
+        
+test:
+  sessions:
+    default:
+      hosts:
+        - localhost:27017
+      database: grape_api_example_test
+
+production:
+  sessions:
+    default:
+      hosts:
+        - localhost:27017
+      database: grape_api_example_production
