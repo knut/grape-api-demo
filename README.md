@@ -1,80 +1,74 @@
-# Grape API Example
+# Grape API Demo
+
+Here's a simple demo of building an API using [Grape](http://intridea.github.io/grape/) (an opinionated micro-framework for creating REST-like APIs in Ruby). This demo is also using [Mongoid](http://mongoid.org/), a Object-Document-Mapper (ODM) for [MongoDB](https://www.mongodb.org/) written in Ruby.
+
+The demo includes simple frontend using [AngularJS](https://angularjs.org/) to easily interact with the API.
 
 ## Getting this Working on Your Computer
 
-	$ git clone ...
-	$ cd ...
+	$ git clone 
+	$ cd grape-api-demo
 	$ gem install bundler
-	$ bundle install
-
-
+	$ bundle install --without production
 	$ bundle exec rackup
 
 If you want to change files without reloading the server, try shotgun:
 	
 	$ bundle exec shotgun config.ru
+
+## API Documentation
+
+Here's a short description of the API in this demo. All references assume you are running the API on localhost:9393.
+
+## Company
+
+#### Add a company
+
+	$ curl -X POST 'http://localhost:9393/api/v1/companies' -H "Content-Type: application/json" -d '{
+		"name": "Company Name",
+		"address": "Company Address",
+		"city": "City Name",
+		"country": "Country Name",
+		"email": "example@example.com",
+		"phone": "12345678"
+	}'
 	
+#### Get a list of all companies
 
-1. Download this repository and unzip.
+	$ curl -X GET 'http://localhost:9393/api/v1/companies'
 
-2. $ 
+#### Get a company
+	
+	$ curl -X GET 'http://localhost:9393/api/v1/companies/:id'
 
-2. Install [RVM](https://rvm.io/rvm/install/), it's the best way to install
-Ruby on your computer and prevent anything you do with Ruby from messing up
-your system.
+#### Update company details
 
-3. When you have installed RVM, open Terminal and direct the terminal to where
-you downloaded this repository, like so:
+	$ curl -X PUT 'http://localhost:9393/api/v1/companies/:id' -H "Content-Type: application/json" -d'{
+		"name": "Company Name Inc",
+		"address": "Some other address",
+		"city": "City Name",
+		"country": "Country Name",
+		"email": "another@example.com",
+		"phone": "87654321"	
+	}'
 
-        $ cd PLACE_YOU_DOWNLOADED_AND_UNZIPPED_THIS_REPOSITORY
+#### Delete a company
 
-4. Now we must install the gems. Gems are what Ruby calls libraries. To do so
-we need to install a different gem first:
+	$ curl -X DELETE 'http://localhost:9393/api/v1/companies/:id'
 
-        $ gem install bundler
-        $ bundle install --without production
+### Person
 
-5. To run the app, use the following command:
+#### Add Person
 
-        $ bundle exec rackup
-This command creates a server on your computer running at
-`http://localhost:9292`. Type that in to a web browser on your computer and you
- should see the contents of `views/index.erb`.
-
-6. When you change any code in `app.rb` you'll need to restart the server.
-To stop the server type "CTRL+C" in Terminal. and then repeat step 5.
-
-## Heroku App Creation
-
-To create a Heroku app, first be sure you are [signed up](https://api.heroku.com/signup).
-
-Install the Heroku gem (may require `sudo`):
-
-    $ gem install heroku
-
-Then type the following in Terminal while inside of the project directory.
-
-    $ heroku create NAME_OF_YOUR_APP
-
-Once this returns successfully, push your app to Heroku.
-
-    $ git push heroku master
-
-### Setting Up the Database on Heroku
-
-In order to run a database on Heroku follow their steps for adding Postgres [here](https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-the-addon). Be sure to sign up for the "dev" plan to avoid being charged.
-
-Once you have completed the steps for provisioning a database we need to migrate our database. It's quite simple:
-
-    $ heroku run irb
-    > require './app'
-    > DataMapper.auto_upgrade!
-    > exit
+	$ curl -X POST 'http://localhost:9393/api/v1/companies/5537446d4b6e751366000000/persons' -H "Content-Type: application/json" -d'{
+  		"name": "John Doe",
+  		"role": "Dude"
+	}'
 
 
+#### Attach a file to a person
 
-
-
+	$ curl -X POST 'http://localhost:9393/api/v1/companies/55376c724b6e751602000000/persons' -F "name=John Doe" -F "role=Dude" -F "file=@tests/fixtures/files/blank.pdf"
 
 
 
