@@ -18,7 +18,7 @@ If you want to change files without reloading the server, try [shotgun](https://
 
 ## Implementation
 
-The main implementation is done in [app/api/api.rb](app/api/api.rb) including the Mongoid-models [Company](api/models/company.rb) and [Person](api/models/person.rb) in [app/api/models](app/api/models).
+The main implementation is done in [app/api/api.rb](app/api/api.rb) including the Mongoid-models [Company](app/models/company.rb) and [Person](app/models/person.rb) in [app/models](app/models).
 
 The AngularJS client is all inside [public](public/).
 
