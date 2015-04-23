@@ -46,7 +46,7 @@
 				<a ng-if="person.file" ng-click="getFile({id: person.id})">Get file</a>
 			</td>
 		    <td>
-		      <a class="btn btn-primary" ui-sref="editPerson({ id: person.id, company_id: company.id})">Edit</a>
+		      <a class="btn" ui-sref="editPerson({ id: person.id, company_id: company.id})">Edit</a>
 		      <a class="btn btn-danger" ng-click="deletePerson(person)">Delete</a>
 		    </td>
 		  </tr>
