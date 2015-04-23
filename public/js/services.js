@@ -17,7 +17,7 @@ angular.module('app.services', [])
 })
 
 .factory('Person', function($resource) {
-  return $resource('http://localhost:9393/api/v1/companies/:company_id/persons/:person_id', { 
+  return $resource('/api/v1/companies/:company_id/persons/:person_id', { 
 	company_id: '@company_id', 
 	person_id: '@person_id'
   }, {
