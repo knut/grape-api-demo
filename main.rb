@@ -6,8 +6,8 @@ Bundler.require
 ENV['RACK_ENV'] ||= 'development'
 $env = ENV['RACK_ENV']
 
-Mongoid.load!("config/mongoid.yml", ENV['RACK_ENV'])
+Mongoid.load!("config/mongoid.yml", $env)
 
-(Dir["./app/models/*.rb"].sort + Dir["./app/api/*.rb"]).each do |file|
+(Dir["./app/models/*.rb"].sort + Dir["./app/api/*.rb"] + Dir["./app/routes/*.rb"].sort).each do |file|
   require file
 end

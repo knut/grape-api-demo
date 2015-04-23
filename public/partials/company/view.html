@@ -1,0 +1,59 @@
+<h3>{{company.name}}</h3>
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<td>{{company.name}}</td>
+	</tr>
+	<tr>
+		<th>Address</th>
+		<td>{{company.address}}</td>
+	</tr>
+	<tr>
+		<th>City</th>
+		<td>{{company.city}}</td>
+	</tr>
+	<tr>
+		<th>Country</th>
+		<td>{{company.country}}</td>
+	</tr>
+	<tr>
+		<th>Email</th>
+		<td>{{company.email}}</td>
+	</tr>
+	<tr>
+		<th>Phone</th>
+		<td>{{company.phone}}</td>
+	</tr>
+</table>
+<div>
+  <a class="btn btn-primary" ui-sref="editCompany({id: company.id})">Edit Company</a>
+</div>
+
+<h3>Persons</h3>
+
+<div ng-if="company.persons">
+	<table class="table table-border">
+		<tr>
+			<th>Name</th>
+			<th>Role</th>
+			<th>File</th>
+			<th>Actions</th>
+		</tr>
+	  	<tr ng-repeat="person in company.persons">
+		    <td>{{person.name}}</td>
+			<td>{{person.role}}</td>
+			<td>
+				<a ng-if="person.file" ng-click="getFile({id: person.id})">Get file</a>
+			</td>
+		    <td>
+		      <a class="btn btn-primary" ui-sref="editPerson({ id: person.id, company_id: company.id})">Edit</a>
+		      <a class="btn btn-danger" ng-click="deletePerson(person)">Delete</a>
+		    </td>
+		  </tr>
+	</table>
+</div>
+
+<div>
+	<a href="#" ui-sref="newPerson({id: company.id})" class="btn btn-primary">Add Person</a>
+</div>
+

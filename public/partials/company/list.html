@@ -1,0 +1,34 @@
+<div class="alert alert-info" role="alert">
+  <p>This is a simple <a href="https://angularjs.org/" target="_blank">AngularJS</a> frontend for a custom <a href="http://intridea.github.io/grape/" target="_blank">Grape API</a> backend (an opinionated micro-framework for creating REST-like APIs in Ruby). Here you can manage a list of companies including a list of persons within each company. You can also upload a file per person.</p>
+</div>
+
+<h1>Companies</h1>
+
+<p><a href="#" ui-sref="newCompany" class="btn btn-primary">New Company</a></p>
+
+<div ng-if="data.companies">
+
+	<table class="table table-border">
+		<tr>
+			<th>Name</th>
+			<th>Address</th>
+			<th>City</th>
+			<th>Country</th>
+			<th>Persons</th>
+			<th>Actions</th>
+		</tr>
+	  	<tr ng-repeat="company in data.companies">
+		    <td>{{company.name}}</td>
+			<td>{{company.address}}</td>
+			<td>{{company.city}}</td>
+			<td>{{company.country}}</td>
+			<td>{{company.persons.length}}</td>
+		    <td>
+				<a class="btn btn-default" ui-sref="viewCompany({ id: company.id })">View</a>
+				<a class="btn btn-default" ui-sref="editCompany({ id: company.id })">Edit</a>
+				<a class="btn btn-danger"  ng-click="deleteCompany(company)">Delete</a>
+		    </td>
+		  </tr>
+	</table>
+
+</div>

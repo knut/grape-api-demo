@@ -12,4 +12,4 @@ use Rack::Cors do
   end
 end
 
-run Rack::Cascade.new [API]
+run Rack::Cascade.new [API, Main]

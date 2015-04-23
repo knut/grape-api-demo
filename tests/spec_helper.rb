@@ -3,7 +3,8 @@ ENV['RACK_ENV'] ||= 'test'
 require 'airborne'
 
 Airborne.configure do |config|
-  config.base_url = 'http://localhost:9393/api/v1'
+  #config.base_url = 'http://localhost:9393/api/v1'
+  config.base_url = 'https://grape-api-demo.herokuapp.com/api/v1'
 end
 
 #before :each do
