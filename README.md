@@ -2,7 +2,7 @@
 
 Here's a simple demo of building an API using [Grape](http://intridea.github.io/grape/) (an opinionated micro-framework for creating REST-like APIs in Ruby). This demo is also using [Mongoid](http://mongoid.org/), a Object-Document-Mapper (ODM) for [MongoDB](https://www.mongodb.org/) written in Ruby.
 
-The demo includes simple frontend using [AngularJS](https://angularjs.org/) to easily interact with the API.
+I've added a simple frontend using [AngularJS](https://angularjs.org/) to easily interact with the API. You'll find the frontend client inside the [public](public/)-folder.
 
 ## Getting this Working on Your Computer
 
@@ -19,8 +19,6 @@ If you want to change files without reloading the server, try [shotgun](https://
 ## Implementation
 
 The main implementation is done in [app/api/api.rb](app/api/api.rb) including the Mongoid-models [Company](app/models/company.rb) and [Person](app/models/person.rb) in [app/models](app/models).
-
-The AngularJS client is all inside [public](public/).
 
 ## Configuration
 

@@ -122,7 +122,7 @@ class API < Grape::API
       error! "Company #{params[:id]} does not exist"
     end
     
-    logger.info params
+    logger.info "#{params[:name]} (#{params[:role]})"
     
     # save person info
     person = Person.new
