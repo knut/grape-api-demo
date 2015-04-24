@@ -1,4 +1,10 @@
-require 'spec_helper'
+ENV['RACK_ENV'] ||= 'test'
+
+require 'airborne'
+
+Airborne.configure do |config|
+  config.base_url = 'http://localhost:9393/api/v1'
+end
 
 describe 'API' do
 
